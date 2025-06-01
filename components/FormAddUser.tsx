@@ -84,7 +84,7 @@ const FormAddUser = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/users",
+        "https://chat-boot-92e040193633.herokuapp.com/users",
         formData,
 
         {

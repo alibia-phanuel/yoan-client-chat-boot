@@ -37,7 +37,7 @@ const UsersList = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:3000/users/${uuid}`,
+        `https://chat-boot-92e040193633.herokuapp.com/users/${uuid}`,
         {
           withCredentials: true,
         }

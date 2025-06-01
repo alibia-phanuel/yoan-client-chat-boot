@@ -24,11 +24,14 @@ export const getUserInfo = async () => {
       throw new Error("Token manquant");
     }
 
-    const response = await axios.get("http://localhost:3000/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.get(
+      "https://chat-boot-92e040193633.herokuapp.com/me",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     return response.data; // Retourne les informations utilisateur
   } catch (error) {

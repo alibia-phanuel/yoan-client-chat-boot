@@ -18,7 +18,7 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/newproducts"
+          "https://chat-boot-92e040193633.herokuapp.com/api/newproducts"
         );
         setNewProducts(response.data); // On récupère les données
       } catch (err) {

@@ -31,11 +31,14 @@ const FormAddQuestion = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("http://localhost:3000/question", {
-        question,
-        answer,
-        createdBy: user?.id,
-      });
+      const response = await axios.post(
+        "https://chat-boot-92e040193633.herokuapp.com/question",
+        {
+          question,
+          answer,
+          createdBy: user?.id,
+        }
+      );
       toast.success(
         response.data.msg || "cet ensemble a été ajouté avec succès !"
       );

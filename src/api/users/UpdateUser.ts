@@ -7,7 +7,8 @@ export interface UpdateUserData {
 }
 
 export const updateUser = async (uuid: string, data: UpdateUserData) => {
-  const baseURL = "http://localhost:3000";
+  // const baseURL = "http://localhost:3000";
+  const baseURL = "https://chat-boot-92e040193633.herokuapp.com";
   try {
     const response = await axios.patch(`${baseURL}/users/${uuid}`, data);
     return response.data;
