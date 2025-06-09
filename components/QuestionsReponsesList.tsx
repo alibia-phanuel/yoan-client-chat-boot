@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
-import LayoutSystem from "../components/share/LayoutSystem";
+import LayoutSystem from "./share/LayoutSystem";
 import { deleteQuestion } from "../src/api/faqs/DeleteQuestion";
 import axios from "axios";
 import useUserStore from "../stores/userStore";

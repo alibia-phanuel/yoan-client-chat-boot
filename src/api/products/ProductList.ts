@@ -13,7 +13,6 @@ interface ErrorResponse {
   url?: string;
 }
 export const getProducts = async (): Promise<ProductList | ErrorResponse> => {
-  // const baseURL = "http://localhost:3000/";
   const baseURL = "https://chat-boot-92e040193633.herokuapp.com/";
 
   try {

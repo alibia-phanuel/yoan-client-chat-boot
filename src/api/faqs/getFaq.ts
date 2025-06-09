@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_BASE_URL = "https://chat-boot-92e040193633.herokuapp.com/";
-// const API_BASE_URL = "http://localhost:3000"; // Remplace par ton URL du backend
+
+const API_BASE_URL = "https://chat-boot-92e040193633.herokuapp.com"; // Remplace par ton URL du backend
 
 export const getQuestionById = async (id: string) => {
   try {

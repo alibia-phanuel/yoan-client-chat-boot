@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 
-const API_URL = "https://chat-boot-92e040193633.herokuapp.com/"; // Remplace par ton URL d'API
+const API_URL = "http://localhost:3000"; // Remplace par ton URL d'API
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -10,6 +10,10 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
+
+    if (!config.headers) {
+      config.headers = new AxiosHeaders();
+    }
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`; // Ajoute le token dans l'en-tête Authorization

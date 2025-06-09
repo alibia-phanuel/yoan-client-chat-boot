@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa"; // Icône de chargement
-import Layout from "../../components/pages/Layout";
+import Layout from "./Layout";
 import LayouSystem from "../share/LayoutSystem";
-import  useUserStore  from "../../stores/userStore";
+import useUserStore from "../../stores/userStore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const ShopifyOrders = () => {

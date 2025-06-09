@@ -7,7 +7,7 @@ interface Post {
   created_time: string;
 }
 
-import Layout from "../../components/pages/Layout";
+import Layout from "./Layout";
 import LayouSystem from "../share/LayoutSystem";
 
 // Format de date en français
@@ -37,7 +37,9 @@ const PostsFacebook = () => {
           axios.get(
             "https://chat-boot-92e040193633.herokuapp.com/facebook/posts/topqualites"
           ),
-          axios.get("https://chat-boot-92e040193633.herokuapp.com/facebook/posts/afrikagadget"),
+          axios.get(
+            "https://chat-boot-92e040193633.herokuapp.com/facebook/posts/afrikagadget"
+          ),
         ]);
 
         setTopQualitesPosts(topQualitesRes.data.data);

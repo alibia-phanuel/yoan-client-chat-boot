@@ -1,6 +1,6 @@
 import Layout from "./Layout";
-import UsersList from "../../components/UsersList";
-import  useUserStore  from "../../stores/userStore";
+import UsersList from "../UsersList";
+import useUserStore from "../../stores/userStore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";

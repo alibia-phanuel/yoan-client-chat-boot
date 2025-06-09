@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FiTrash2 } from "react-icons/fi";
 import Layout from "./pages/Layout";
-import LayoutSystem from "../components/share/LayoutSystem";
+import LayoutSystem from "./share/LayoutSystem";
 type ElementType = "image" | "text";
 
 interface BaseElement {

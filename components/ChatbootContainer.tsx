@@ -1,8 +1,8 @@
 // ChatbootContainer.tsx (version corrigée)
 import { io } from "socket.io-client";
 import LayoutSystem from "./share/LayoutSystem";
-import { ScrollArea } from "../components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import { ScrollArea } from "./ui/scroll-area";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { GrSend } from "react-icons/gr";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -48,7 +48,9 @@ const ChatbootContainer: React.FC = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/messages"); // adapte l’URL si besoin
+        const response = await axios.get(
+          "https://chat-boot-92e040193633.herokuapp.com/messages"
+        ); // adapte l’URL si besoin
         const data = response.data;
         console.log(data);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -5,11 +5,11 @@ import { FaPlus } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LayoutSystem from "../components/share/LayoutSystem";
+import LayoutSystem from "./share/LayoutSystem";
 import { deleteProduct } from "../src/api/products/DeleteProduct";
 import axios from "axios";
 import useUserStore from "../stores/userStore";
-import { ProductWithElements } from "../components/type/type";
+import { ProductWithElements } from "./type/type";
 const ProductList = () => {
   const [newproducts, setNewProducts] = useState<ProductWithElements[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
