@@ -113,11 +113,8 @@ const FormAddProduct = () => {
     // Ajouter les données textuelles
     formData.append("keyword", keyword);
     formData.append("name", name);
-    if (user !== null) {
-      formData.append("createdBy", user);
-    } else {
-      alert("Veuillez vous connecter");
-    }
+
+    formData.append("createdBy", user as string);
 
     const structuredElements: StructuredElement[] = [];
     let imageIndex = 0;
