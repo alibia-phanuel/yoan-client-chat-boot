@@ -92,6 +92,9 @@ const ProductList = () => {
                     id
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Mots clés
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Nom
                   </th>
 
@@ -108,6 +111,9 @@ const ProductList = () => {
                 {newproducts.map((newproduct, index) => (
                   <tr key={newproduct.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {newproduct.keyword}
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {newproduct.name}
                     </td>

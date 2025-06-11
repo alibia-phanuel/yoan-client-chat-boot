@@ -20,6 +20,7 @@ export type ProductElement = {
 
 export type ProductWithElements = {
   id: string;
+  keyword: string;
   name: string;
   createdBy: string;
   createdAt: string; // ISO date
