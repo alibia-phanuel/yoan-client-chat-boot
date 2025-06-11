@@ -156,7 +156,17 @@ const FormAddProduct = () => {
         console.log(`${key}:`, value);
       }
     }
-
+    for (const [key, value] of formData.entries()) {
+      if (value instanceof File) {
+        console.log(`${key}:`, {
+          name: value.name,
+          type: value.type,
+          size: value.size,
+        });
+      } else {
+        console.log(`${key}:`, value);
+      }
+    }
     try {
       const res = await axios.post(
         "https://chat-boot-92e040193633.herokuapp.com/api/newproducts",

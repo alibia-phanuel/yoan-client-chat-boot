@@ -32,23 +32,36 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    const role = user?.role ?? "inconnu"; // Si user est null, on assigne "inconnu" par défaut
+  const handleDelete = async (id: string) => {
+    const role = user?.role ?? "inconnu";
+
     if (role !== "admin") {
-      toast.error("Vous n'êtes pas autorisé à supprimer ce produit !");
-      return; // Arrête l'exécution si l'utilisateur n'est pas admin
+      toast.error("⚠️ Vous n'êtes pas autorisé à supprimer ce produit !");
+      return;
     }
-    if (confirm("Voulez-vous vraiment supprimer ce produit ?")) {
-      try {
-        await deleteProduct(id);
-        setNewProducts((prevProducts) =>
-          prevProducts.filter((prevProduct) => Number(prevProduct.id) !== id)
-        );
-        toast.success("Produit supprimé avec succès !");
-      } catch (error) {
-        toast.error("Erreur lors de la suppression du produit !");
-        console.error(error);
+
+    const confirmation = confirm(
+      "🗑️ Voulez-vous vraiment supprimer ce produit ?"
+    );
+    if (!confirmation) return;
+
+    try {
+      await deleteProduct(id);
+
+      setNewProducts((prevProducts) =>
+        prevProducts.filter((prevProduct) => prevProduct.id !== id)
+      );
+
+      toast.success("✅ Produit supprimé avec succès !");
+    } catch (error: unknown) {
+      let errorMessage = "❌ Une erreur est survenue lors de la suppression.";
+
+      if (error instanceof Error) {
+        errorMessage = `❌ ${error.message}`;
       }
+
+      toast.error(errorMessage);
+      console.error("Erreur lors de la suppression du produit :", error);
     }
   };
 
@@ -58,7 +71,7 @@ const ProductList = () => {
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-500"></div>
       </div>
     );
-
+  console.log(newproducts);
   return (
     <LayoutSystem>
       <div className=" flex justify-center  h-full bg-gray-50 w-full">
@@ -113,7 +126,7 @@ const ProductList = () => {
                       </Link>
                       <button
                         className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 flex items-center gap-2"
-                        onClick={() => handleDelete(Number(newproduct.id))}
+                        onClick={() => handleDelete(String(newproduct.id))}
                       >
                         <FaTrash />
                         Supprimer

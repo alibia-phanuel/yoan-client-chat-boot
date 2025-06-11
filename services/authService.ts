@@ -26,6 +26,7 @@ export const getUserInfo = async () => {
 
     const response = await axios.get(
       "https://chat-boot-92e040193633.herokuapp.com/me",
+
       {
         headers: {
           Authorization: `Bearer ${token}`,
