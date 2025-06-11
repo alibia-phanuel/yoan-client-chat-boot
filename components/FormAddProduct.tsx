@@ -4,9 +4,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
 type ElementType = "image" | "text";
-
 interface BaseElement {
   id: string;
   type: ElementType;
@@ -33,7 +31,7 @@ const MAX_TEXTS = 5;
 
 const FormAddProduct = () => {
   const [user, setUser] = useState<string | null>(null);
-  const [productId, setProductId] = useState("");
+  const [keyword, setKeyword] = useState("");
   const [elements, setElements] = useState<FormElement[]>([]);
   const [name, setName] = useState("");
   useEffect(() => {
@@ -105,7 +103,7 @@ const FormAddProduct = () => {
       alert("Des éléments ont le même numéro d'ordre !");
       return;
     }
-    if (!name || !productId) {
+    if (!name || !keyword) {
       alert("Veuillez remplir tous les champs");
       return;
     }
@@ -113,9 +111,13 @@ const FormAddProduct = () => {
     const formData = new FormData();
 
     // Ajouter les données textuelles
-    formData.append("id", productId);
+    formData.append("keyword", keyword);
     formData.append("name", name);
-    formData.append("createdBy", user as string);
+    if (user !== null) {
+      formData.append("createdBy", user);
+    } else {
+      alert("Veuillez vous connecter");
+    }
 
     const structuredElements: StructuredElement[] = [];
     let imageIndex = 0;
@@ -197,8 +199,8 @@ const FormAddProduct = () => {
                 <input
                   type="text"
                   placeholder="Saisir l'ID du produit"
-                  value={productId}
-                  onChange={(e) => setProductId(e.target.value)}
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
                   className="mt-1 block w-full py-2 px-4 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 />
